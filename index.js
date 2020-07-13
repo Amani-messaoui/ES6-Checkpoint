@@ -4,33 +4,19 @@ var pets = [
   { name: "Jasper", type: "dog", bornOn: 2016 }
 ];
 
-function getAge(pet) {
-  return new Date().getFullYear() - pet.bornOn;
-}
+const getAge =pet =>{ return new Date().getFullYear() - pet.bornOn};
 
-var petsWithAge = [];
-for (var i = 0; i < pets.length; i++) {
-  var pet = pets[i];
-  pet.age = getAge(pet);
+let petsWithAge = [];
+  pets.forEach(pet => {pet.age = getAge(pet)})
+  console.log(petsWithAge);
 
-  petsWithAge.push(pet);
-}
-console.log(petsWithAge);
+const dogs = [];
+  dogs = pets.filter(pet => pet.type == "dog")
 
-var dogs = [];
-for (var i = 0; i < pets.length; i++) {
-  var pet = pets[i];
-  if (pet.type === "dog") {
-    dogs.push(pet);
-  }
-}
-console.log(dogs);
+  console.log(dogs);
 
-var jasper;
-for (var i = 0; i < pets.length; i++) {
-  var pet = pets[i];
-  if (pet.name === "Jasper") {
-    jasper = pet;
-  }
-}
+let jasper;
+  jasper = pets.find(pet => pet.name === "Jasper")
+
+
 console.log("Jasper is " + jasper.age + " years old");
